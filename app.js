@@ -1,5 +1,7 @@
 const API_URL =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b1633cd8f01f9dc6460c7ce813151df0&page=1";
+const API_Series =
+  "https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=b1633cd8f01f9dc6460c7ce813151df0&page=1";
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_API =
   "https://api.themoviedb.org/3/search/movie?&api_key=b1633cd8f01f9dc6460c7ce813151df0&query='";
@@ -8,7 +10,18 @@ const SEARCH_API =
 const form = document.getElementById("form");
 const main = document.getElementById("main");
 const search = document.getElementById("search");
+const series = document.getElementById("toggleSeries");
+const movie = document.getElementById("toggleMovie");
+
+series.addEventListener("click", () => {
+  getMovies(API_Series);
+});
+movie.addEventListener("click", () => {
+  getMovies(API_URL);
+});
+
 getMovies(API_URL);
+
 async function getMovies(url) {
   const res = await fetch(url);
   const data = await res.json();
