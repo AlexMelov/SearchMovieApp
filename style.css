@@ -126,3 +126,25 @@ main {
 .movie:hover .overview {
     transform: translateY(0);
 }
+
+.buttons {
+    display: flex;
+}
+
+@media (max-width:500px) {
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .buttons {
+        /* flex-direction: column; */
+    }
+    .search {
+        width: 100%;
+    }
+    #toggleMovie, #toggleSeries {
+        margin: 0 10px 0 0;
+        white-space: nowrap;
+    }
+}
